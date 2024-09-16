@@ -1,4 +1,6 @@
 import { Hono } from 'hono'
+import { serveStatic } from 'hono/bun'
+// for static type serving^
 const app = new Hono()
 
 // app.use('/static/*', serveStatic({ root: './' }))
