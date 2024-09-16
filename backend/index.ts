@@ -1,19 +1,16 @@
+import { Hono } from 'hono'
+const app = new Hono()
+
+app.get('/', (c) => {
+  return c.text("It's aliiiive!!")
+})
+
+const port = process.env.PORT || 8080
 Bun.serve({
-  port: 8080,
-  async fetch(req) {
-    const url = new URL(req.url);
-
-    // Example API route
-    if (url.pathname === "/api/hello") {
-      return new Response(JSON.stringify({ message: "Hello from Bun!" }), {
-        headers: { "Content-Type": "application/json" },
-      });
-    }
-
-    // Return 404 for unknown API routes
-    return new Response("API not found", { status: 404 });
-  },
+  fetch: app.fetch,
+  port: Number(port),
+  development: true,
 });
 
-console.log("Bun server running on http://localhost:8080");
-
+console.log(`Listening on port: ${port}`)
+export default app
