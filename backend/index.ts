@@ -1,6 +1,9 @@
 import { Hono } from 'hono'
 const app = new Hono()
 
+// app.use('/static/*', serveStatic({ root: './' }))
+// ^ how you'd go about serving static files in a folder named 'static'
+
 app.get('/', (c) => {
   return c.text("It's aliiiive!!")
 })
