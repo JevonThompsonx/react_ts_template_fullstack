@@ -2,9 +2,12 @@
   "dependencies": {},
   "devDependencies": {
     "concurrently": "^9.0.1"
-  },
+  },"workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "install:all": "cd frontend && bun install && cd ../backend && bun install",
-    "dev": "concurrently \"cd frontend && bun run dev\" \"cd backend && bun run server.ts\""  }
-
+    "install:all": "bun install",
+    "dev": "concurrently \"bun run --cwd frontend dev\" \"bun run --cwd backend dev\"" 
+  }
 }
