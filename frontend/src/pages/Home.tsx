@@ -4,6 +4,8 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <h1>Hellothere. Let's get to work</h1>
+      <div className="flex flex-col justify-evenly items-center w-screen h-screen">
+        <h1 className="text-3xl">Hello there. Let's get to work</h1>
+      </div>
     </>)
 }
